@@ -2,7 +2,7 @@ use mangos to download all english language images for any given series from bat
 
 the default config file is ~/.config/mangos.data, can change the location in mangos script
 
-![MANGO](http://raw.githubusercontent.com/jarano93/green-grocer/blob/master/mangos.png)
+![Mango Image](https://raw.githubusercontent.com/jarano93/green-grocer/master/mangos.png)
 
 ### Example ~/.config/mangos.config
 ```config
