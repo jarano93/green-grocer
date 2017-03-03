@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 readonly DIR=$(dirname $0)
-readonly PY="$DIR/py2"
+readonly PY="$DIR/../py2"
 
 i=1
 while [[ true ]]
