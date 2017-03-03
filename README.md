@@ -1,5 +1,7 @@
 use mangos to download all english language images for any given series from batoto
 
+-requires: phantomjs, python2 with BeautifulSoup4, perl, grep, wget, and zsh
+
 the default config file is ~/.config/mangos.config, can change the location in mangos script
 
 ![Mango Image](https://raw.githubusercontent.com/jarano93/green-grocer/master/mangos.png)
