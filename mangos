@@ -9,6 +9,7 @@ readonly DIR=$(dirname $0)
 readonly PY="$DIR/py2"
 readonly JS="$DIR/js"
 readonly ZSH="$DIR/zsh"
+readonly PL="$DIR/pl"
 
 clean_dir () {
     if [ -d "$HOME/$OUTPUT_DIR/$1" ]
@@ -89,16 +90,20 @@ do
     then
         ch_name=$(line $chapter_names $i)
         ch_group=$(line $chapter_groups $i)
+        esc_name=$(perl $PL/replace_forwardslash.pl "$(echo $ch_name)")
+        esc_group=$(perl $PL/replace_forwardslash.pl "$(echo $ch_group)")
         ch_url=$(line $chapter_urls $i)
-        ch_dir=$(echo "[$ch_group] $ch_name")
+        ch_dir=$(echo "[$esc_group] $esc_name")
         clean_subdir $series_dir $ch_dir
         zsh $ZSH/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
         populate_subdir $ch_url $series_dir $ch_dir
     else
         ch_name=$(line $chapter_names $i)
         ch_group=$(line $chapter_groups $i)
+        esc_name=$(perl $PL/replace_forwardslash.pl "$(echo $ch_name)")
+        esc_group=$(perl $PL/replace_forwardslash.pl "$(echo $ch_group)")
         ch_url=$(line $chapter_urls $i)
-        ch_dir=$(echo "[$ch_group] $ch_name")
+        ch_dir=$(echo "[$esc_group] $esc_name")
         clean_subdir $series_dir $ch_dir
         zsh $ZSH/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
         populate_subdir $ch_url $series_dir $ch_dir
