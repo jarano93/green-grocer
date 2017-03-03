@@ -1,4 +1,3 @@
-
 use mangos to download all english language pages for any given series from batoto
 
 requires:
