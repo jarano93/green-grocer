@@ -1,4 +1,4 @@
-use mangos to download all english language pages for any given series from batoto
+use mangos to download all english language pages for any given series from batoto.  Try not to have to many instances running at the same time.
 
 requires:
   * phantomjs
