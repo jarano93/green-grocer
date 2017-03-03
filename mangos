@@ -2,7 +2,7 @@
 
 
 # Set output directory and config file
-readonly OUTPUT_DIR="fresh_mangos"
+readonly OUTPUT_DIR="$HOME/fresh_mangos"
 readonly CONFIG_FILE="$HOME/.config/mangos.config"
 # Get values from config file
 readonly SLEEP_TIME=$(grep "sleep" $CONFIG_FILE | grep -Po "=.+" | grep -Po '\w+')
@@ -19,22 +19,22 @@ readonly PL="$DIR/pl"
 ##  FUNCTIONS  ##
 #################
 
-# creates a dirctory in $HOME/$OUTPUT_DIR, deletes it if it already exists
+# creates a dirctory in $OUTPUT_DIR, deletes it if it already exists
 clean_dir () {
-    if [ -d "$HOME/$OUTPUT_DIR/$1" ]
+    if [ -d "$OUTPUT_DIR/$1" ]
     then
-        rm -rf "$HOME/$OUTPUT_DIR/$1"
+        rm -rf "$OUTPUT_DIR/$1"
     fi
-    mkdir "$HOME/$OUTPUT_DIR/$1"
+    mkdir "$OUTPUT_DIR/$1"
 }
 
-# creates a directory in $HOME/$OUTPUT_DIR/$1, deletes it if it already exists
+# creates a directory in $OUTPUT_DIR/$1, deletes it if it already exists
 clean_subdir () {
-    if [ -d "$HOME/$OUTPUT_DIR/$1/$2" ]
+    if [ -d "$OUTPUT_DIR/$1/$2" ]
     then
-        rm -rf "$HOME/$OUTPUT_DIR/$1/$2"
+        rm -rf "$OUTPUT_DIR/$1/$2"
     fi
-    mkdir "$HOME/$OUTPUT_DIR/$1/$2"
+    mkdir "$OUTPUT_DIR/$1/$2"
 }
 
 # gets all the urls of every page in a single chapter
@@ -63,7 +63,7 @@ populate_subdir () {
     do
         sleep $SLEEP_TIME
         echo -n "\r    downloading page $page of $num_pages pages"
-        zsh $ZSH/get_image.zsh $MEMBER_ID $PASS_HASH $page_url "$HOME/$OUTPUT_DIR/$2/$3"
+        zsh $ZSH/get_image.zsh $MEMBER_ID $PASS_HASH $page_url "$OUTPUT_DIR/$2/$3"
         (( page++ ))
     done
     echo -n "\r"
@@ -71,9 +71,9 @@ populate_subdir () {
 
 
 # creates $OUTPUT_DIR if it does not exist
-if [ ! -d "$HOME/$OUTPUT_DIR" ]
+if [ ! -d "$OUTPUT_DIR" ]
 then
-    mkdir $HOME/$OUTPUT_DIR
+    mkdir $OUTPUT_DIR
 fi
 
 echo "connecting to: $1"
