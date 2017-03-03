@@ -49,7 +49,7 @@ populate_subdir () {
     for page_url in $page_urls
     do
         sleep $SLEEP_TIME
-        echo -n "\r    downloading page $page of $num_pages"
+        echo -n "\r    downloading page $page of $num_pages pages"
         zsh $ZSH/get_image.zsh $MEMBER_ID $PASS_HASH $page_url "$HOME/$OUTPUT_DIR/$2/$3"
         (( page++ ))
     done
