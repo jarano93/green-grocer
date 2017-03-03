@@ -1,340 +1,153 @@
 fresh_mangos
-└── Danberu nan kiro moteru?
-    ├── [Rakuen Translations] Ch.10: Chest Press
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   └── img000017.png
-    ├── [Rakuen Translations] Ch.11: Dips
-    │   ├── img000001.png
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.jpg
-    │   ├── img000018.jpg
-    │   ├── img000019.jpg
-    │   ├── img000020.jpg
-    │   ├── img000021.jpg
-    │   ├── img000022.jpg
-    │   ├── img000023.jpg
-    │   └── img000024.jpg
-    ├── [Rakuen Translations] Ch.12: Umi da!
-    │   ├── img000001.png
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.jpg
-    │   ├── img000005.png
-    │   ├── img000006.jpg
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.png
-    │   ├── img000018.png
-    │   ├── img000019.png
-    │   ├── img000020.png
-    │   └── img000021.png
-    ├── [Rakuen Translations] Ch.13: Leg Curls
-    │   ├── img000001.png
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   └── img000016.png
-    ├── [Rakuen Translations] Ch.14: Athletic Festival
-    │   ├── img000001.png
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.jpg
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.png
-    │   └── img000018.png
-    ├── [Rakuen Translations] Ch.15: Chinnings
-    │   ├── img000001.png
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.jpg
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   └── img000017.png
-    ├── [Rakuen Translations] Ch.16: Sauna Competition
-    │   ├── img000001.png
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   └── img000017.png
-    ├── [Rakuen Translations] Ch.1: Admission
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.jpg
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.png
-    │   └── img000018.png
-    ├── [Rakuen Translations] Ch.1 (v2): Admission
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.jpg
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.png
-    │   ├── img000018.png
-    │   └── img000019.png
-    ├── [Rakuen Translations] Ch.2: Bench Press
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.png
-    │   ├── img000018.png
-    │   ├── img000019.png
-    │   └── img000020.png
-    ├── [Rakuen Translations] Ch.2 (v2): Bench Press
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.png
-    │   ├── img000018.png
-    │   ├── img000019.png
-    │   ├── img000020.png
-    │   └── img000021.png
-    ├── [Rakuen Translations] Ch.3: Squats
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.jpg
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   └── img000016.png
-    ├── [Rakuen Translations] Ch.4: Stretches
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.jpg
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   └── img000014.png
-    ├── [Rakuen Translations] Ch.5: Planks
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.png
-    │   └── img000018.png
-    ├── [Rakuen Translations] Ch.6: Lat Pulldowns
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.jpg
-    │   ├── img000005.png
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   └── img000015.png
-    ├── [Rakuen Translations] Ch.7: Dieting
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.jpg
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   └── img000015.png
-    ├── [Rakuen Translations] Ch.8: Dumbbell Curls
-    │   ├── img000001.jpg
-    │   ├── img000002.png
-    │   ├── img000003.png
-    │   ├── img000004.png
-    │   ├── img000005.jpg
-    │   ├── img000006.png
-    │   ├── img000007.png
-    │   ├── img000008.png
-    │   ├── img000009.png
-    │   ├── img000010.png
-    │   ├── img000011.png
-    │   ├── img000012.png
-    │   ├── img000013.png
-    │   ├── img000014.png
-    │   ├── img000015.png
-    │   ├── img000016.png
-    │   ├── img000017.png
-    │   ├── img000018.png
-    │   └── img000019.png
-    └── [Rakuen Translations] Ch.9: Lifts of the North Star
-        ├── img000001.jpg
-        ├── img000002.png
-        ├── img000003.png
-        ├── img000004.png
-        ├── img000005.jpg
-        ├── img000006.png
-        ├── img000007.png
-        ├── img000008.png
-        ├── img000009.png
-        ├── img000010.png
-        ├── img000011.png
-        ├── img000012.png
-        ├── img000013.png
-        ├── img000014.png
-        ├── img000015.png
-        ├── img000016.png
-        └── img000017.png
+├── Danberu nan kiro moteru?
+│   ├── [Rakuen Translations] Ch.10: Chest Press
+│   ├── [Rakuen Translations] Ch.11: Dips
+│   ├── [Rakuen Translations] Ch.12: Umi da!
+│   ├── [Rakuen Translations] Ch.13: Leg Curls
+│   ├── [Rakuen Translations] Ch.14: Athletic Festival
+│   ├── [Rakuen Translations] Ch.15: Chinnings
+│   ├── [Rakuen Translations] Ch.16: Sauna Competition
+│   ├── [Rakuen Translations] Ch.1: Admission
+│   ├── [Rakuen Translations] Ch.1 (v2): Admission
+│   ├── [Rakuen Translations] Ch.2: Bench Press
+│   ├── [Rakuen Translations] Ch.2 (v2): Bench Press
+│   ├── [Rakuen Translations] Ch.3: Squats
+│   ├── [Rakuen Translations] Ch.4: Stretches
+│   ├── [Rakuen Translations] Ch.5: Planks
+│   ├── [Rakuen Translations] Ch.6: Lat Pulldowns
+│   ├── [Rakuen Translations] Ch.7: Dieting
+│   ├── [Rakuen Translations] Ch.8: Dumbbell Curls
+│   └── [Rakuen Translations] Ch.9: Lifts of the North Star
+├── Hajimete no Gal
+│   ├── [4chan] Vol.1 Ch.10: My First Kiss
+│   ├── [4chan] Vol.1 Ch.1: My First Dogeza
+│   ├── [4chan] Vol.1 Ch.2: My First Confession
+│   ├── [4chan] Vol.1 Ch.3: My First Indirect Kiss
+│   ├── [4chan] Vol.1 Ch.4: My First Kissing Practice
+│   ├── [4chan] Vol.1 Ch.5: My First Chance
+│   ├── [4chan] Vol.1 Ch.6: My First Karaoke
+│   ├── [4chan] Vol.1 Ch.7: My First Invitation
+│   ├── [4chan] Vol.1 Ch.8v2: My First Promise
+│   ├── [4chan] Vol.1 Ch.9: My First Movie
+│   ├── [4chan] Vol.2 Ch.11: My First P.E. Storage
+│   ├── [-a-nonymous] Vol.2 Ch.12: My First Touch
+│   ├── [Biamam Scans] Vol.2 Ch.13: My First Infirmary
+│   ├── [Go Manga] Vol.1 Ch.10: My First...
+│   ├── [Go Manga] Vol.1 Ch.1: The First Prostrate
+│   ├── [Go Manga] Vol.1 Ch.2: The First Confession
+│   ├── [Go Manga] Vol.1 Ch.3: First Indirect Kiss
+│   ├── [Go Manga] Vol.1 Ch.4: My First Kissing Practice
+│   ├── [Go Manga] Vol.1 Ch.5: My First Chance
+│   ├── [Go Manga] Vol.1 Ch.6: My First Karaoke
+│   ├── [Go Manga] Vol.1 Ch.7: The First Invitation
+│   ├── [Go Manga] Vol.1 Ch.8: The First Promise
+│   ├── [Go Manga] Vol.1 Ch.9: My First Movie
+│   ├── [Go Manga] Vol.2 Ch.11: My First P.E. Storage
+│   ├── [Go Manga] Vol.2 Ch.12: My First Touch
+│   ├── [Go Manga] Vol.2 Ch.13: My First Infirmary
+│   ├── [Go Manga] Vol.2 Ch.14 Read Online
+│   ├── [Go Manga] Vol.2 Ch.15: The First Tanned Girl
+│   ├── [Go Manga] Vol.2 Ch.16: The First Diet
+│   ├── [Go Manga] Vol.2 Ch.17: The First Locked Room
+│   ├── [Go Manga] Vol.2 Ch.18: The First Shopping
+│   ├── [Go Manga] Vol.2 Ch.19: The First Pool
+│   ├── [Go Manga] Vol.2 Ch.20: The First Quarrel
+│   ├── [Go Manga] Vol.3 Ch.21: My First Lover?
+│   ├── [Go Manga] Vol.3 Ch.22: The First Real Intention
+│   ├── [Go Manga] Vol.3 Ch.23: The First Younger Sister?
+│   ├── [Go Manga] Vol.3 Ch.24: The First Half-Assed Gyaru
+│   ├── [Go Manga] Vol.3 Ch.25: The First Own Room
+│   └── [Mangazuki] Vol.3 Ch.26: The First Request
+├── Infection
+│   ├── [Nameless scans] Vol.2 Ch.11: The Dawn after a Night
+│   ├── [Nameless scans] Vol.2 Ch.12: Things Hidden In One's Chest
+│   ├── [Nameless scans] Vol.2 Ch.13: A Hero's Face
+│   ├── [Poor College Student Translations] Ch.1: The Evolution of Infected
+│   ├── [Ravens Scans] Vol.1 Ch.5v2: The Dangers Of A Repose
+│   ├── [Ravens Scans] Vol.2 Ch.10: Coming Home
+│   ├── [Ravens Scans] Vol.2 Ch.11: Dawn
+│   ├── [Ravens Scans] Vol.2 Ch.12: Secrets
+│   ├── [Ravens Scans] Vol.2 Ch.13: The True Face Of A Hero
+│   ├── [Ravens Scans] Vol.2 Ch.14.5: Bonus
+│   ├── [Ravens Scans] Vol.2 Ch.14: The Counterattack Starts Now!
+│   ├── [Ravens Scans] Vol.2 Ch.6v2: Collision
+│   ├── [Ravens Scans] Vol.2 Ch.7: The End Of The Escape
+│   ├── [Ravens Scans] Vol.2 Ch.8: The Plan Set In Motion
+│   ├── [Ravens Scans] Vol.2 Ch.9: The Great Escape
+│   ├── [Ravens Scans] Vol.3 Ch.15: Even More Lives
+│   ├── [Ravens Scans] Vol.3 Ch.16: Solitary Battle
+│   ├── [Ravens Scans] Vol.3 Ch.17: The Will to Live
+│   ├── [Ravens Scans] Vol.3 Ch.18: The Pride of a Hero
+│   ├── [Ravens Scans] Vol.3 Ch.19: Something fun
+│   ├── [Ravens Scans] Vol.3 Ch.20: The Ecology of Carriers
+│   ├── [Ravens Scans] Vol.3 Ch.21: An Unforgivable Person
+│   ├── [Ravens Scans] Vol.3 Ch.22: Enami's Negotiation Technique
+│   ├── [Ravens Scans] Vol.3 Ch.23: Invasion
+│   ├── [Ravens Scans] Vol.4 Ch.24: Maximum Threat Level
+│   ├── [Ravens Scans] Vol.4 Ch.25: The Real Goal
+│   ├── [Ravens Scans] Vol.4 Ch.26: Harbored Secret
+│   ├── [xPearse] Vol.1 Ch.1: Infection Revolution
+│   ├── [xPearse] Vol.1 Ch.2: The Bitten People
+│   ├── [xPearse] Vol.1 Ch.3: A Single Life Hangs
+│   └── [xPearse] Vol.1 Ch.4: Escape Time
+└── Kaguya Wants to be Confessed To: The Geniuses' War of Love and Brains
+    ├── [Psylocke Scans] Vol.1 Ch.10.5: Volume 1 Extras
+    ├── [Psylocke Scans] Vol.1 Ch.10: The Student Council Wants to Play a Prank
+    ├── [Psylocke Scans] Vol.1 Ch.1: I Want to be Invited to a Movie
+    ├── [Psylocke Scans] Vol.1 Ch.2: I Want to Play Old Maid
+    ├── [Psylocke Scans] Vol.1 Ch.3: Kaguya Doesn't Know Much
+    ├── [Psylocke Scans] Vol.1 Ch.4: Miyuki Shirogane Wants to Answer
+    ├── [Psylocke Scans] Vol.1 Ch.5.5: Extra Chapter
+    ├── [Psylocke Scans] Vol.1 Ch.5: Kaguya Wants to Eat
+    ├── [Psylocke Scans] Vol.1 Ch.6: Miyuki Shirogane Wants to Hide
+    ├── [Psylocke Scans] Vol.1 Ch.7: Fujiwara Wants to Go On a Trip
+    ├── [Psylocke Scans] Vol.1 Ch.8: Kaguya Wants to be Answered
+    ├── [Psylocke Scans] Vol.1 Ch.9: Kaguya Wants to Walk
+    ├── [Psylocke Scans] Vol.2 Ch.11: Kaguya Wants to Exchange
+    ├── [Psylocke Scans] Vol.2 Ch.12: Kaguya Wants to be Stopped
+    ├── [Psylocke Scans] Vol.2 Ch.13: Kaguya Wants to be Indirect
+    ├── [Psylocke Scans] Vol.2 Ch.14: Miyuki Shirogane Hasn't Done It
+    ├── [Psylocke Scans] Vol.2 Ch.15: Miyuki Shirogane Wants to Flee
+    ├── [Psylocke Scans] Vol.2 Ch.16: Kaguya Wants to Do Well
+    ├── [Psylocke Scans] Vol.2 Ch.17: Kaguya Wants to Adore
+    ├── [Psylocke Scans] Vol.2 Ch.18: The Student Council Wants to Talk
+    ├── [Psylocke Scans] Vol.2 Ch.19: Kaguya Wants to be Sent
+    ├── [Psylocke Scans] Vol.2 Ch.20.5: Volume 2 Extras
+    ├── [Psylocke Scans] Vol.2 Ch.20: Miyuki Shirogane Wants to Speak
+    ├── [Psylocke Scans] Vol.3 Ch.21: Kaguya Wants to Have Held
+    ├── [Psylocke Scans] Vol.3 Ch.22: Chika Fujiwara Wants to be Eaten
+    ├── [Psylocke Scans] Vol.3 Ch.23: Miyuki Shirogane Wants to Show Off
+    ├── [Psylocke Scans] Vol.3 Ch.24: Yu Ishigami Wants to Survive
+    ├── [Psylocke Scans] Vol.3 Ch.25: Kaguya Wants to be Noticed
+    ├── [Psylocke Scans] Vol.3 Ch.26: Miyuki Shirogane Wants to Work
+    ├── [Psylocke Scans] Vol.3 Ch.27.5: Extra Chapter
+    ├── [Psylocke Scans] Vol.3 Ch.27: Kaguya Wants to Endure
+    ├── [Psylocke Scans] Vol.3 Ch.28: Chika Fujiwara Wants to Test
+    ├── [Psylocke Scans] Vol.3 Ch.29: Kaguya Wants to be Joined
+    ├── [Psylocke Scans] Vol.3 Ch.30.5: Volume 3 Extras
+    ├── [Psylocke Scans] Vol.3 Ch.30: Ai Hayasaka Wants to Defend
+    ├── [Psylocke Scans] Vol.4 Ch.31: Miyuki Shirogane Can't Lose
+    ├── [Psylocke Scans] Vol.4 Ch.32: Kaguya Wants to be Hated
+    ├── [Psylocke Scans] Vol.4 Ch.33: Kaguya Wants to Offer
+    ├── [Psylocke Scans] Vol.4 Ch.34: Chika Fujiwara Wants to Visit
+    ├── [Psylocke Scans] Vol.4 Ch.35: Regarding Kaguya Shinomiya, Part 1
+    ├── [Psylocke Scans] Vol.4 Ch.36: Miyuki Shirogane Wants to Sing
+    ├── [Psylocke Scans] Vol.4 Ch.37: Kaguya Won't Forgive
+    ├── [Psylocke Scans] Vol.4 Ch.38: Kaguya Wants to Forgive
+    ├── [Psylocke Scans] Vol.4 Ch.39: Kaguya Wants to be Called
+    ├── [Psylocke Scans] Vol.4 Ch.40.5: Volume 4 Extras
+    ├── [Psylocke Scans] Vol.4 Ch.40: Miyuki Shirogane Wants to Go on a Trip
+    ├── [Psylocke Scans] Vol.5 Ch.41: Miyuki Shirogane Wants to Meet
+    ├── [Psylocke Scans] Vol.5 Ch.42: Ai Hayasaka Wants to Soak
+    ├── [Psylocke Scans] Vol.5 Ch.43: Chika Fujiwara Really Wants to Eat
+    ├── [Psylocke Scans] Vol.5 Ch.44: I Can't Hear the Fireworks, Part 1
+    ├── [Psylocke Scans] Vol.5 Ch.45: I Can't Hear the Fireworks, Part 2
+    ├── [Psylocke Scans] Vol.5 Ch.46: Kaguya Doesn't Want to Avoid
+    ├── [Psylocke Scans] Vol.5 Ch.47: Kaguya Wants to Choose
+    ├── [Psylocke Scans] Vol.5 Ch.48: The Student Council Isn't Alpha
+    ├── [Psylocke Scans] Vol.5 Ch.49: Miyuki Shirogane Wants to Prepare
+    ├── [Psylocke Scans] Vol.5 Ch.50: Nagisa Kashiwagi Can't Watch
+    ├── [Psylocke Scans] Vol.6 Ch.51: Kaguya Wants to Celebrate
+    ├── [Psylocke Scans] Vol.6 Ch.52: Kaguya Wants to Ask
+    ├── [Psylocke Scans] Vol.6 Ch.53: Kaguya Wants to Give
+    └── [Psylocke Scans] Vol.6 Ch.54: Chika Fujiwara Wants to Confirm
