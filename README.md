@@ -20,3 +20,11 @@ pass_hash=your_pass_hash_cookie_value
 the default output file is ~/fresh-mangos/, can change the location in the mangos script
 
 pass url of series as a argument to mangos to download all english works in the series
+
+###### What's Next?
+
+The next major build of mangos should be interruptible, so you can cancel downloading a series then resume later without having to restart the entire process.
+
+Maybe be able to pass multiple series url's as args so mangos downloads them all sequentially.
+
+Maybe in the future have the choice to filter by group/chapters but I'm not to hot on this, especially filtering by chapter
