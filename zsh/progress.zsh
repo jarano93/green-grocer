@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+readonly DIR=$(dirname $0)
+readonly PY="$DIR/py2"
+
 i=1
 while [[ true ]]
 do
@@ -13,4 +16,4 @@ do
     fi
 done
 
-echo "$(python2 py2/progress-parse.py $@ $COLUMNS)"
+echo "$(python2 $PY/progress-parse.py $@ $COLUMNS)"

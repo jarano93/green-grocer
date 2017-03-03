@@ -2,11 +2,13 @@
 
 readonly OUTPUT_DIR="fresh_mangos"
 readonly CONFIG_FILE="$HOME/.config/mangos.data"
-readonly SLEEP_TIME=5
+readonly SLEEP_TIME=1
+readonly DIR=$(dirname $0)
+readonly PY="$DIR/py2"
+readonly JS="$DIR/js"
+readonly ZSH="$DIR/zsh"
 MEMBER_ID=$(grep "member_id" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
 PASS_HASH=$(grep "pass_hash" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
-# echo "MEMBER_ID: $MEMBER_ID"
-# echo "PASS_HASH: $PASS_HASH"
 
 clean_dir () {
     if [ -d "$HOME/$OUTPUT_DIR/$1" ]
@@ -25,8 +27,8 @@ clean_subdir () {
 }
 
 get_page_urls () {
-    page_html=$(phantomjs js/page_html.js $MEMBER_ID $PASS_HASH $1)
-    echo $(python2 py2/get_page_urls.py $(echo $page_html) | grep -Po '<option [^\n]+>' | grep -Po 'http://bato.to/reader#\w+')
+    page_html=$(phantomjs $JS/page_html.js $MEMBER_ID $PASS_HASH $1)
+    echo $(python2 $PY/get_page_urls.py $(echo $page_html) | grep -Po '<option [^\n]+>' | grep -Po 'http://bato.to/reader#\w+')
 }
 
 line () {
@@ -40,11 +42,10 @@ line () {
 
 populate_subdir () {
     page_urls=($(get_page_urls $1))
-    # echo $page_urls
     for page_url in $page_urls
     do
         sleep $SLEEP_TIME
-        zsh zsh/get_image.zsh $MEMBER_ID $PASS_HASH $page_url "$HOME/$OUTPUT_DIR/$2/$3"
+        zsh $ZSH/get_image.zsh $MEMBER_ID $PASS_HASH $page_url "$HOME/$OUTPUT_DIR/$2/$3"
     done
 }
 
@@ -57,15 +58,15 @@ fi
 echo "connecting to: $1"
 
 # get series page HTML
-SERIES_HTML=$(phantomjs js/series_html.js $MEMBER_ID $PASS_HASH $1)
+SERIES_HTML=$(phantomjs $JS/series_html.js $MEMBER_ID $PASS_HASH $1)
 # scrape series page HTML
-series_name=$(python2 py2/get_series_name.py $(echo $SERIES_HTML))
-chapter_urls=$(python2 py2/get_chapter_urls.py $(echo $SERIES_HTML))
+series_name=$(python2 $PY/get_series_name.py $(echo $SERIES_HTML))
+chapter_urls=$(python2 $PY/get_chapter_urls.py $(echo $SERIES_HTML))
 # get english row HTML because python can't handle unicode, fam
 sleep $SLEEP_TIME
-eng_row=$(phantomjs js/eng_row_html.js $MEMBER_ID $PASS_HASH $1)
-chapter_names=$(zsh zsh/get_chapter_names.zsh $eng_row)
-chapter_groups=$(zsh zsh/get_chapter_groups.zsh $eng_row)
+eng_row=$(phantomjs $JS/eng_row_html.js $MEMBER_ID $PASS_HASH $1)
+chapter_names=$(zsh $ZSH/get_chapter_names.zsh $eng_row)
+chapter_groups=$(zsh $ZSH/get_chapter_groups.zsh $eng_row)
 
 echo "Series: $series_name"
 length=$(echo $chapter_urls | wc -l)
@@ -85,7 +86,7 @@ do
         ch_url=$(line $chapter_urls $i)
         ch_dir=$(echo "[$ch_group] $ch_name")
         clean_subdir $series_dir $ch_dir
-        zsh zsh/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
+        zsh $ZSH/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
         populate_subdir $ch_url $series_dir $ch_dir
     else
         ch_name=$(line $chapter_names $i)
@@ -93,10 +94,10 @@ do
         ch_url=$(line $chapter_urls $i)
         ch_dir=$(echo "[$ch_group] $ch_name")
         clean_subdir $series_dir $ch_dir
-        zsh zsh/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
+        zsh $ZSH/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
         populate_subdir $ch_url $series_dir $ch_dir
     fi
     (( i-- ))
     (( j++ ))
 done
-zsh test-progress $(echo "Downloaded: $series_name! --end_status_string $length $length")
+zsh $ZSH/progress.zsh  $(echo "Downloaded: $series_name! --end_status_string $length $length")
