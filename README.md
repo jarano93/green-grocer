@@ -1,6 +1,6 @@
 use mangos to download all english language images for any given series from batoto
 
-the default config file is ~/.config/mangos.data, can change the location in mangos script
+the default config file is ~/.config/mangos.config, can change the location in mangos script
 
 ![Mango Image](https://raw.githubusercontent.com/jarano93/green-grocer/master/mangos.png)
 
