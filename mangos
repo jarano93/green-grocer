@@ -1,16 +1,25 @@
 #!/bin/zsh
 
+
+# Set output directory and config file
 readonly OUTPUT_DIR="fresh_mangos"
 readonly CONFIG_FILE="$HOME/.config/mangos.config"
+# Get values from config file
 readonly SLEEP_TIME=$(grep "sleep" $CONFIG_FILE | grep -Po "=.+" | grep -Po '\w+')
 readonly MEMBER_ID=$(grep "member_id" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
 readonly PASS_HASH=$(grep "pass_hash" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
+# get absoulte paths to local directories
 readonly DIR=$(dirname $0)
 readonly PY="$DIR/py2"
 readonly JS="$DIR/js"
 readonly ZSH="$DIR/zsh"
 readonly PL="$DIR/pl"
 
+#################
+##  FUNCTIONS  ##
+#################
+
+# creates a dirctory in $HOME/$OUTPUT_DIR, deletes it if it already exists
 clean_dir () {
     if [ -d "$HOME/$OUTPUT_DIR/$1" ]
     then
@@ -19,6 +28,7 @@ clean_dir () {
     mkdir "$HOME/$OUTPUT_DIR/$1"
 }
 
+# creates a directory in $HOME/$OUTPUT_DIR/$1, deletes it if it already exists
 clean_subdir () {
     if [ -d "$HOME/$OUTPUT_DIR/$1/$2" ]
     then
@@ -27,11 +37,13 @@ clean_subdir () {
     mkdir "$HOME/$OUTPUT_DIR/$1/$2"
 }
 
+# gets all the urls of every page in a single chapter
 get_page_urls () {
     page_html=$(phantomjs $JS/page_html.js $MEMBER_ID $PASS_HASH $1)
     echo $(python2 $PY/get_page_urls.py $(echo $page_html) | grep -Po '<option [^\n]+>' | grep -Po 'http://bato.to/reader#\w+')
 }
 
+# returns a single line by index in a multi-line string
 line () {
     if (( $2 == 1 ))
     then
@@ -41,6 +53,7 @@ line () {
     fi
 }
 
+# populates a directory (i.e. downloads all the images)
 populate_subdir () {
     page_urls=($(get_page_urls $1))
     num_pages=$(echo $page_urls | wc -w)
@@ -57,6 +70,7 @@ populate_subdir () {
 }
 
 
+# creates $OUTPUT_DIR if it does not exist
 if [ ! -d "$HOME/$OUTPUT_DIR" ]
 then
     mkdir $HOME/$OUTPUT_DIR
@@ -66,12 +80,14 @@ echo "connecting to: $1"
 
 # get series page HTML
 SERIES_HTML=$(phantomjs $JS/series_html.js $MEMBER_ID $PASS_HASH $1)
-# scrape series page HTML
+# scrape series page HTML with python
 series_name=$(python2 $PY/get_series_name.py $(echo $SERIES_HTML))
 chapter_urls=$(python2 $PY/get_chapter_urls.py $(echo $SERIES_HTML))
-# get english row HTML because python can't handle unicode, fam
+# sleep so bato.to servers don't notice you hitting them up to fast 
 sleep $SLEEP_TIME
+# get english row HTML because python can't handle unicode, fam
 eng_row=$(phantomjs $JS/eng_row_html.js $MEMBER_ID $PASS_HASH $1)
+# grep chapter names and group names from the english row HTML
 chapter_names=$(zsh $ZSH/get_chapter_names.zsh $eng_row)
 chapter_groups=$(zsh $ZSH/get_chapter_groups.zsh $eng_row)
 
@@ -83,31 +99,22 @@ clean_dir $series_dir
 
 i=$length
 j=0
+# urls, names, groups are in descending order, so loop from the bottom up to get
+# chapters in ascending order
 while (( $i > 0 ))
 do
     sleep $SLEEP_TIME
-    if (( $i == 1))
-    then
-        ch_name=$(line $chapter_names $i)
-        ch_group=$(line $chapter_groups $i)
-        esc_name=$(perl $PL/replace_forwardslash.pl "$(echo $ch_name)")
-        esc_group=$(perl $PL/replace_forwardslash.pl "$(echo $ch_group)")
-        ch_url=$(line $chapter_urls $i)
-        ch_dir=$(echo "[$esc_group] $esc_name")
-        clean_subdir $series_dir $ch_dir
-        zsh $ZSH/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
-        populate_subdir $ch_url $series_dir $ch_dir
-    else
-        ch_name=$(line $chapter_names $i)
-        ch_group=$(line $chapter_groups $i)
-        esc_name=$(perl $PL/replace_forwardslash.pl "$(echo $ch_name)")
-        esc_group=$(perl $PL/replace_forwardslash.pl "$(echo $ch_group)")
-        ch_url=$(line $chapter_urls $i)
-        ch_dir=$(echo "[$esc_group] $esc_name")
-        clean_subdir $series_dir $ch_dir
-        zsh $ZSH/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
-        populate_subdir $ch_url $series_dir $ch_dir
-    fi
+    ch_name=$(line $chapter_names $i)
+    ch_group=$(line $chapter_groups $i)
+    # replace '/' with '-' so mkdir can handle them
+    rep_name=$(perl $PL/replace_forwardslash.pl "$(echo $ch_name)")
+    rep_group=$(perl $PL/replace_forwardslash.pl "$(echo $ch_group)")
+    ch_url=$(line $chapter_urls $i)
+    ch_dir=$(echo "[$rep_group] $rep_name")
+    clean_subdir $series_dir $ch_dir
+    # display progress
+    zsh $ZSH/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
+    populate_subdir $ch_url $series_dir $ch_dir
     (( i-- ))
     (( j++ ))
 done
