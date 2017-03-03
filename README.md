@@ -1,6 +1,12 @@
-use mangos to download all english language images for any given series from batoto
 
--requires: phantomjs, python2 with BeautifulSoup4, perl, grep, wget, and zsh
+use mangos to download all english language pages for any given series from batoto
+
+requires:
+  * phantomjs
+  * python2 with BeautifulSoup4
+  * perl
+  * zsh
+  * perl
 
 the default config file is ~/.config/mangos.config, can change the location in mangos script
 

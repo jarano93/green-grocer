@@ -1,0 +1,340 @@
+fresh_mangos
+└── Danberu nan kiro moteru?
+    ├── [Rakuen Translations] Ch.10: Chest Press
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   └── img000017.png
+    ├── [Rakuen Translations] Ch.11: Dips
+    │   ├── img000001.png
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.jpg
+    │   ├── img000018.jpg
+    │   ├── img000019.jpg
+    │   ├── img000020.jpg
+    │   ├── img000021.jpg
+    │   ├── img000022.jpg
+    │   ├── img000023.jpg
+    │   └── img000024.jpg
+    ├── [Rakuen Translations] Ch.12: Umi da!
+    │   ├── img000001.png
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.jpg
+    │   ├── img000005.png
+    │   ├── img000006.jpg
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.png
+    │   ├── img000018.png
+    │   ├── img000019.png
+    │   ├── img000020.png
+    │   └── img000021.png
+    ├── [Rakuen Translations] Ch.13: Leg Curls
+    │   ├── img000001.png
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   └── img000016.png
+    ├── [Rakuen Translations] Ch.14: Athletic Festival
+    │   ├── img000001.png
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.jpg
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.png
+    │   └── img000018.png
+    ├── [Rakuen Translations] Ch.15: Chinnings
+    │   ├── img000001.png
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.jpg
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   └── img000017.png
+    ├── [Rakuen Translations] Ch.16: Sauna Competition
+    │   ├── img000001.png
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   └── img000017.png
+    ├── [Rakuen Translations] Ch.1: Admission
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.jpg
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.png
+    │   └── img000018.png
+    ├── [Rakuen Translations] Ch.1 (v2): Admission
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.jpg
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.png
+    │   ├── img000018.png
+    │   └── img000019.png
+    ├── [Rakuen Translations] Ch.2: Bench Press
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.png
+    │   ├── img000018.png
+    │   ├── img000019.png
+    │   └── img000020.png
+    ├── [Rakuen Translations] Ch.2 (v2): Bench Press
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.png
+    │   ├── img000018.png
+    │   ├── img000019.png
+    │   ├── img000020.png
+    │   └── img000021.png
+    ├── [Rakuen Translations] Ch.3: Squats
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.jpg
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   └── img000016.png
+    ├── [Rakuen Translations] Ch.4: Stretches
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.jpg
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   └── img000014.png
+    ├── [Rakuen Translations] Ch.5: Planks
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.png
+    │   └── img000018.png
+    ├── [Rakuen Translations] Ch.6: Lat Pulldowns
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.jpg
+    │   ├── img000005.png
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   └── img000015.png
+    ├── [Rakuen Translations] Ch.7: Dieting
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.jpg
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   └── img000015.png
+    ├── [Rakuen Translations] Ch.8: Dumbbell Curls
+    │   ├── img000001.jpg
+    │   ├── img000002.png
+    │   ├── img000003.png
+    │   ├── img000004.png
+    │   ├── img000005.jpg
+    │   ├── img000006.png
+    │   ├── img000007.png
+    │   ├── img000008.png
+    │   ├── img000009.png
+    │   ├── img000010.png
+    │   ├── img000011.png
+    │   ├── img000012.png
+    │   ├── img000013.png
+    │   ├── img000014.png
+    │   ├── img000015.png
+    │   ├── img000016.png
+    │   ├── img000017.png
+    │   ├── img000018.png
+    │   └── img000019.png
+    └── [Rakuen Translations] Ch.9: Lifts of the North Star
+        ├── img000001.jpg
+        ├── img000002.png
+        ├── img000003.png
+        ├── img000004.png
+        ├── img000005.jpg
+        ├── img000006.png
+        ├── img000007.png
+        ├── img000008.png
+        ├── img000009.png
+        ├── img000010.png
+        ├── img000011.png
+        ├── img000012.png
+        ├── img000013.png
+        ├── img000014.png
+        ├── img000015.png
+        ├── img000016.png
+        └── img000017.png
