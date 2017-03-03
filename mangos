@@ -1,14 +1,14 @@
 #!/bin/zsh
 
 readonly OUTPUT_DIR="fresh_mangos"
-readonly CONFIG_FILE="$HOME/.config/mangos.data"
-readonly SLEEP_TIME=1
+readonly CONFIG_FILE="$HOME/.config/mangos.config"
+readonly SLEEP_TIME=$(grep "sleep" $CONFIG_FILE | grep -Po "=.+" | grep -Po '\w+')
+readonly MEMBER_ID=$(grep "member_id" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
+readonly PASS_HASH=$(grep "pass_hash" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
 readonly DIR=$(dirname $0)
 readonly PY="$DIR/py2"
 readonly JS="$DIR/js"
 readonly ZSH="$DIR/zsh"
-MEMBER_ID=$(grep "member_id" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
-PASS_HASH=$(grep "pass_hash" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
 
 clean_dir () {
     if [ -d "$HOME/$OUTPUT_DIR/$1" ]
@@ -42,11 +42,17 @@ line () {
 
 populate_subdir () {
     page_urls=($(get_page_urls $1))
+    num_pages=$(echo $page_urls | wc -w)
+    echo -n "    preparing to download $num_pages pages"
+    i=1
     for page_url in $page_urls
     do
         sleep $SLEEP_TIME
+        echo -n "\r    downloading page $i of $num_pages"
         zsh $ZSH/get_image.zsh $MEMBER_ID $PASS_HASH $page_url "$HOME/$OUTPUT_DIR/$2/$3"
+        (( i++ ))
     done
+    echo -n "\r"
 }
 
 
