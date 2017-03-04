@@ -142,7 +142,7 @@ populate_subdir () {
         (( chapter_iter++ ))
         echo $chapter_iter > "$chapter_cache"
     done
-    echo "\r"
+    echo -n "\r"
 }
 
 # scrapes the info from the series page
