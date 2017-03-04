@@ -31,6 +31,7 @@ readonly SLEEP_TIME=$(grep "sleep" $CONFIG_FILE | grep -Po "=.+" | grep -Po '[^=
 readonly MEMBER_ID=$(grep "member_id" $CONFIG_FILE | grep -Po "=.+" | grep -Po '[^=]+')
 readonly PASS_HASH=$(grep "pass_hash" $CONFIG_FILE | grep -Po "=.+" | grep -Po '[^=]+')
 readonly CACHE="$OUTPUT_DIR/.cache"
+readonly TEMP="$OUTPUT_DIR/.temp"
 
 
 #################
@@ -65,11 +66,11 @@ download_series () {
     while (( $i <= $series_entries ))
     do
         sleep $SLEEP_TIME
-        ch_name=$(line $name_cache $i)
-        ch_group=$(line $group_cache $i)
+        ch_name=$(line $name_temp $i)
+        ch_group=$(line $group_temp $i)
         rep_name=$(perl $PL/replace_forwardslash.pl "$(echo $ch_name)")
         rep_group=$(perl $PL/replace_forwardslash.pl "$(echo $ch_group)")
-        ch_url=$(line $url_cache $i)
+        ch_url=$(line $url_temp $i)
         chapter_status="[$rep_group] $rep_name"
         ch_dir="$series_dir/$chapter_status"
         ensure_dir $ch_dir
@@ -154,9 +155,9 @@ series_scrape () {
     sleep $SLEEP_TIME
     # get english row HTML because python can't handle unicode, fam
     # eng_rows=$(phantomjs $JS/eng_row_html.js $MEMBER_ID $PASS_HASH $1)
-    series_source="$series_cache source.html"
+    series_source="$TEMP/$replaced_series_url source.html"
     $(echo $SERIES_HTML > "$series_source")
-    eng_rows="$series_cache eng_rows.html"
+    eng_rows="$TEMP/$replaced_seris_url eng_rows.html"
     zsh $ZSH/eng_names_groups.zsh $series_source $eng_rows
     # grep chapter names and group names from the english row HTML
     chapter_names=$(zsh $ZSH/file_chapter_names.zsh $eng_rows)
@@ -173,21 +174,26 @@ series_cache () {
         if (( $cache_iter == $series_entries ))
         then
             cache_url=$(line $chapter_urls  $cache_iter)
-            echo "$cache_url" > "$url_cache"
+            echo "$cache_url" > "$url_temp"
             cache_name=$(line $chapter_names  $cache_iter)
-            echo "$cache_name" > "$name_cache"
+            echo "$cache_name" > "$name_temp"
             cache_group=$(line $chapter_groups  $cache_iter)
-            echo "$cache_group" > "$group_cache"
+            echo "$cache_group" > "$group_temp"
         else
             cache_url=$(line $chapter_urls  $cache_iter)
-            echo "$cache_url" >> "$url_cache"
+            echo "$cache_url" >> "$url_temp"
             cache_name=$(line $chapter_names  $cache_iter)
-            echo "$cache_name" >> "$name_cache"
+            echo "$cache_name" >> "$name_temp"
             cache_group=$(line $chapter_groups  $cache_iter)
-            echo "$cache_group" >> "$group_cache"
+            echo "$cache_group" >> "$group_temp"
         fi
         (( cache_iter-- ))
     done
+}
+
+# remove all temp files for the series
+remove_temps () {
+    rm $url_temp $name_temp $group_temp $series_source $eng_rows
 }
 
 
@@ -199,11 +205,13 @@ series_cache () {
 # ensure $OUTPUT_DIR and $CACHE exist, if not make them
 ensure_dir $OUTPUT_DIR
 ensure_dir $CACHE
+ensure_dir $TEMP
 
-series_cache="$CACHE/$(perl $PL/replace_forwardslash.pl $1)"
-url_cache="$series_cache urls"
-name_cache="$series_cache names"
-group_cache="$series_cache groups"
+replaced_series_url=$(perl $PL/replace_forwardslash.pl $1)
+series_cache="$CACHE/.$replaced_series_url"
+url_temp="$TEMP/$replaced_series_url urls"
+name_temp="$TEMP/$replaced_series_url names"
+group_temp="$TEMP/$replaced_series_url groups"
 # see if $1 exists in $CACHE dir
 # if true, the series cache exists (i.e. check for updates and continue where left off)
 # o.w. start from scratch
@@ -222,5 +230,5 @@ else
     echo "Starting: $series_name"
     series_iter=1
 fi
-# echo $series_iter
 download_series $series_iter
+remove_temps
