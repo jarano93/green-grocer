@@ -1,3 +1,5 @@
 #!/bin/zsh
 
-mangos $1
+readonly GG="$(dirname $0)/.."
+
+$GG/mangos $1
