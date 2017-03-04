@@ -1,40 +1,94 @@
 #!/bin/zsh
 
-
-# Set output directory and config file
-readonly OUTPUT_DIR="$HOME/fresh_mangos"
-readonly CONFIG_FILE="$HOME/.config/mangos.config"
-# Get values from config file
-readonly SLEEP_TIME=$(grep "sleep" $CONFIG_FILE | grep -Po "=.+" | grep -Po '\w+')
-readonly MEMBER_ID=$(grep "member_id" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
-readonly PASS_HASH=$(grep "pass_hash" $CONFIG_FILE | grep -Po "=.+" | grep -Po "\w+")
-# get absoulte paths to local directories
+# set absoulte paths to local directories
 readonly DIR=$(dirname $0)
 readonly PY="$DIR/py2"
 readonly JS="$DIR/js"
 readonly ZSH="$DIR/zsh"
 readonly PL="$DIR/pl"
 
+# handle no and multiple arguments
+num_args=$(echo $@ | wc -w)
+if (( $num_args == 0 ))
+then
+    echo "no series url(s) passed as an argument"
+    exit
+elif (( $num_args > 2 ))
+then
+    # if more than one argument mangos them in sequence
+    for series_url in $@
+    do
+        zsh $ZSH/call_mangos.zsh $series_url
+    done
+    exit
+fi
+
+# set output directory and config file
+readonly CONFIG_FILE="$HOME/.config/mangos.config"
+# set values from config file
+readonly OUTPUT_DIR="$(grep "output_dir" $CONFIG_FILE | grep -Po '=.+' | grep -Po '[^=]+')"
+readonly SLEEP_TIME=$(grep "sleep" $CONFIG_FILE | grep -Po "=.+" | grep -Po '[^=]+')
+readonly MEMBER_ID=$(grep "member_id" $CONFIG_FILE | grep -Po "=.+" | grep -Po '[^=]+')
+readonly PASS_HASH=$(grep "pass_hash" $CONFIG_FILE | grep -Po "=.+" | grep -Po '[^=]+')
+readonly CACHE="$OUTPUT_DIR/.cache"
+
+
 #################
 ##  FUNCTIONS  ##
 #################
 
-# creates a dirctory in $OUTPUT_DIR, deletes it if it already exists
-clean_dir () {
-    if [ -d "$OUTPUT_DIR/$1" ]
-    then
-        rm -rf "$OUTPUT_DIR/$1"
-    fi
-    mkdir "$OUTPUT_DIR/$1"
+# cache all the urls for the pages in the chapters
+cache_page_urls () {
+    page_urls=($(get_page_urls $1))
+    cache_page_iter=1
+    for url in $page_urls
+    do
+        if (( cache_page_iter == 1 ))
+        then
+            echo "$url" > $2
+        else
+            echo "$url" >> $2
+        fi
+        (( cache_page_iter++))
+    done
+    echo "1" > $3
 }
 
-# creates a directory in $OUTPUT_DIR/$1, deletes it if it already exists
-clean_subdir () {
-    if [ -d "$OUTPUT_DIR/$1/$2" ]
+# downloads the series starting from the $1 entry
+download_series () {
+    i=$1
+    # echo $i
+    echo "$series_name\n$i" > "$series_cache"
+    (( j = i - 1 ))
+    series_dir="$OUTPUT_DIR/$(perl $PL/replace_forwardslash.pl $series_name)"
+    ensure_dir $series_dir
+    while (( $i <= $series_entries ))
+    do
+        sleep $SLEEP_TIME
+        ch_name=$(line $name_cache $i)
+        ch_group=$(line $group_cache $i)
+        rep_name=$(perl $PL/replace_forwardslash.pl "$(echo $ch_name)")
+        rep_group=$(perl $PL/replace_forwardslash.pl "$(echo $ch_group)")
+        ch_url=$(line $url_cache $i)
+        chapter_status="[$rep_group] $rep_name"
+        ch_dir="$series_dir/$chapter_status"
+        ensure_dir $ch_dir
+        # display progress
+        zsh $ZSH/progress.zsh $(echo "Downloading: $chapter_status --end_status_string $j $series_entries")
+        populate_subdir $ch_url $ch_dir
+        (( i++ ))
+        (( j++ ))
+        echo "$series_name\n$i" > "$series_cache"
+    done
+    zsh $ZSH/progress.zsh  $(echo "Downloaded: $series_name! --end_status_string $series_entries $series_entries")
+}
+
+# create dir if it does not exist
+ensure_dir () {
+    if [ ! -d "$1" ]
     then
-        rm -rf "$OUTPUT_DIR/$1/$2"
+        mkdir "$1"
     fi
-    mkdir "$OUTPUT_DIR/$1/$2"
 }
 
 # gets all the urls of every page in a single chapter
@@ -47,75 +101,122 @@ get_page_urls () {
 line () {
     if (( $2 == 1 ))
     then
-        echo $(echo $1 | head -n 1)
+        if [ -f $1 ]
+        then
+            echo $(head -n 1 $1)
+        else
+            echo $(echo $1 | head -n 1)
+        fi
     else
-        echo $(echo $1 | head -n $2 | tail -n 1)
+        if [ -f $1 ]
+        then
+            echo $(head -n $2 $1 | tail -n 1)
+        else
+            echo $(echo $1 | head -n $2 | tail -n 1)
+        fi
     fi
 }
 
 # populates a directory (i.e. downloads all the images)
 populate_subdir () {
-    page_urls=($(get_page_urls $1))
-    num_pages=$(echo $page_urls | wc -w)
-    echo -n "    preparing to download $num_pages pages"
-    page=1
-    for page_url in $page_urls
+    echo -n "    preparing to download chapter"
+    chapter_cache="$2/.cache"
+    page_cache="$2/.urls"
+    if [ -f $chapter_cache ]
+    then
+        chapter_iter=$(cat $chapter_cache)
+    else
+        cache_page_urls $1 $page_cache $chapter_cache
+        chapter_iter=1
+    fi
+    num_pages=$(cat $page_cache | wc -l)
+    echo -n "\r    preparing to download $num_pages pages"
+    while (( $chapter_iter <= $num_pages ))
     do
         sleep $SLEEP_TIME
-        echo -n "\r    downloading page $page of $num_pages pages"
-        zsh $ZSH/get_image.zsh $MEMBER_ID $PASS_HASH $page_url "$OUTPUT_DIR/$2/$3"
-        (( page++ ))
+        echo -n "\r    downloading page $chapter_iter of $num_pages pages"
+        page_url=$(line $page_cache $chapter_iter)
+        zsh $ZSH/get_image.zsh $MEMBER_ID $PASS_HASH $page_url $2
+        (( chapter_iter++ ))
+        echo $chapter_iter > "$chapter_cache"
     done
-    echo -n "\r"
+    echo "\r"
+}
+
+# scrapes the info from the series page
+series_scrape () {
+    # get series page HTML
+    SERIES_HTML=$(phantomjs $JS/series_html.js $MEMBER_ID $PASS_HASH $1)
+    # scrape series page HTML with python
+    series_name=$(python2 $PY/get_series_name.py $(echo $SERIES_HTML))
+    chapter_urls=$(python2 $PY/get_chapter_urls.py $(echo $SERIES_HTML))
+    # sleep so bato.to servers don't notice you hitting them up to fast
+    sleep $SLEEP_TIME
+    # get english row HTML because python can't handle unicode, fam
+    eng_row=$(phantomjs $JS/eng_row_html.js $MEMBER_ID $PASS_HASH $1)
+    # grep chapter names and group names from the english row HTML
+    chapter_names=$(zsh $ZSH/get_chapter_names.zsh $eng_row)
+    chapter_groups=$(zsh $ZSH/get_chapter_groups.zsh $eng_row)
+    series_entries=$(echo $chapter_urls | wc -l)
+}
+
+# caches the series information
+series_cache () {
+    cache_iter=$series_entries
+    # reverse the lists orders in the cache
+    while (( $cache_iter > 0 ))
+    do
+        if (( $cache_iter == $series_entries ))
+        then
+            cache_url=$(line $chapter_urls  $cache_iter)
+            echo "$cache_url" > "$url_cache"
+            cache_name=$(line $chapter_names  $cache_iter)
+            echo "$cache_name" > "$name_cache"
+            cache_group=$(line $chapter_groups  $cache_iter)
+            echo "$cache_group" > "$group_cache"
+        else
+            cache_url=$(line $chapter_urls  $cache_iter)
+            echo "$cache_url" >> "$url_cache"
+            cache_name=$(line $chapter_names  $cache_iter)
+            echo "$cache_name" >> "$name_cache"
+            cache_group=$(line $chapter_groups  $cache_iter)
+            echo "$cache_group" >> "$group_cache"
+        fi
+        (( cache_iter-- ))
+    done
 }
 
 
-# creates $OUTPUT_DIR if it does not exist
-if [ ! -d "$OUTPUT_DIR" ]
+############
+##  BODY  ##
+############
+
+
+# ensure $OUTPUT_DIR and $CACHE exist, if not make them
+ensure_dir $OUTPUT_DIR
+ensure_dir $CACHE
+
+series_cache="$CACHE/$(perl $PL/replace_forwardslash.pl $1)"
+url_cache="$series_cache urls"
+name_cache="$series_cache names"
+group_cache="$series_cache groups"
+# see if $1 exists in $CACHE dir
+# if true, the series cache exists (i.e. check for updates and continue where left off)
+# o.w. start from scratch
+if [ -f "$series_cache" ]
 then
-    mkdir $OUTPUT_DIR
+    echo "Checking for updates to: $(line $series_cache 1)"
+    echo "Connecting to: $1"
+    series_scrape $1
+    series_cache
+    echo "Continuing: $series_name"
+    series_iter=$(tail -n 1 $series_cache)
+else
+    echo "Connecting to: $1"
+    series_scrape $1
+    series_cache
+    echo "Starting: $series_name"
+    series_iter=1
 fi
-
-echo "connecting to: $1"
-
-# get series page HTML
-SERIES_HTML=$(phantomjs $JS/series_html.js $MEMBER_ID $PASS_HASH $1)
-# scrape series page HTML with python
-series_name=$(python2 $PY/get_series_name.py $(echo $SERIES_HTML))
-chapter_urls=$(python2 $PY/get_chapter_urls.py $(echo $SERIES_HTML))
-# sleep so bato.to servers don't notice you hitting them up to fast 
-sleep $SLEEP_TIME
-# get english row HTML because python can't handle unicode, fam
-eng_row=$(phantomjs $JS/eng_row_html.js $MEMBER_ID $PASS_HASH $1)
-# grep chapter names and group names from the english row HTML
-chapter_names=$(zsh $ZSH/get_chapter_names.zsh $eng_row)
-chapter_groups=$(zsh $ZSH/get_chapter_groups.zsh $eng_row)
-
-echo "Series: $series_name"
-length=$(echo $chapter_urls | wc -l)
-
-series_dir="$series_name"
-clean_dir $series_dir
-
-i=$length
-j=0
-# urls, names, groups are in descending order, so loop from the bottom up to get
-# chapters in ascending order
-while (( $i > 0 ))
-do
-    sleep $SLEEP_TIME
-    ch_name=$(line $chapter_names $i)
-    ch_group=$(line $chapter_groups $i)
-    # replace '/' with '-' so mkdir can handle them
-    rep_name=$(perl $PL/replace_forwardslash.pl "$(echo $ch_name)")
-    rep_group=$(perl $PL/replace_forwardslash.pl "$(echo $ch_group)")
-    ch_url=$(line $chapter_urls $i)
-    ch_dir=$(echo "[$rep_group] $rep_name")
-    clean_subdir $series_dir $ch_dir
-    # display progress
-    zsh $ZSH/progress.zsh $(echo "Downloading: $ch_dir --end_status_string $j $length")
-    populate_subdir $ch_url $series_dir $ch_dir
-    (( i-- ))
-    (( j++ ))
-done
-zsh $ZSH/progress.zsh  $(echo "Downloaded: $series_name! --end_status_string $length $length")
+# echo $series_iter
+download_series $series_iter
