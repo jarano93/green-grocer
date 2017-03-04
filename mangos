@@ -40,7 +40,7 @@ readonly TEMP="$OUTPUT_DIR/.temp"
 
 # cache all the urls for the pages in the chapters
 cache_page_urls () {
-    page_urls=($(get_page_urls $1))
+    page_urls=($(zsh $ZSH/page_urls.zsh $MEMBER_ID $PASS_HASH $1))
     cache_page_iter=1
     for url in $page_urls
     do
@@ -93,9 +93,10 @@ ensure_dir () {
 }
 
 # gets all the urls of every page in a single chapter
+# DEPRECATED
 get_page_urls () {
-    page_html=$(phantomjs $JS/page_html.js $MEMBER_ID $PASS_HASH $1)
-    echo $(python2 $PY/get_page_urls.py $(echo $page_html) | grep -Po '<option [^\n]+>' | grep -Po 'http://bato.to/reader#\w+')
+    page_html=$(phantomjs $JS/delayed_page.js $MEMBER_ID $PASS_HASH $1)
+    echo $(python2 $PY/get_page_urls.py $(echo $page_html) | grep -Po 'http://bato.to/reader#\w+')
 }
 
 # returns a single line by index in a multi-line string
@@ -120,7 +121,7 @@ line () {
 
 # populates a directory (i.e. downloads all the images)
 populate_subdir () {
-    echo -n "    preparing to download chapter"
+    echo -n "    preparing to download chapter..."
     chapter_cache="$2/.cache"
     page_cache="$2/.urls"
     if [ -f $chapter_cache ]
