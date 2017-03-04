@@ -153,10 +153,14 @@ series_scrape () {
     # sleep so bato.to servers don't notice you hitting them up to fast
     sleep $SLEEP_TIME
     # get english row HTML because python can't handle unicode, fam
-    eng_row=$(phantomjs $JS/eng_row_html.js $MEMBER_ID $PASS_HASH $1)
+    # eng_rows=$(phantomjs $JS/eng_row_html.js $MEMBER_ID $PASS_HASH $1)
+    series_source="$series_cache source.html"
+    $(echo $SERIES_HTML > "$series_source")
+    eng_rows="$series_cache eng_rows.html"
+    zsh $ZSH/eng_names_groups.zsh $series_source $eng_rows
     # grep chapter names and group names from the english row HTML
-    chapter_names=$(zsh $ZSH/get_chapter_names.zsh $eng_row)
-    chapter_groups=$(zsh $ZSH/get_chapter_groups.zsh $eng_row)
+    chapter_names=$(zsh $ZSH/file_chapter_names.zsh $eng_rows)
+    chapter_groups=$(zsh $ZSH/file_chapter_groups.zsh $eng_rows)
     series_entries=$(echo $chapter_urls | wc -l)
 }
 
