@@ -26,5 +26,5 @@ pass a single or multiple urls of series from bato.to as a argument to mangos to
 
 ###### What's Next?
 
-  *Stop using Beautiful Soup
-  *Maybe in the future have the choice to filter by group/chapters but I'm not to hot on this, especially filtering by chapter
+  * Stop using Beautiful Soup
+  * Maybe in the future have the choice to filter by group/chapters but I'm not to hot on this, especially filtering by chapter
