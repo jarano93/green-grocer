@@ -2,7 +2,7 @@ use mangos to download all english language pages for any given series from bato
 
 requires:
   * phantomjs
-  * python2 ~~with BeautifulSoup4~~
+  * python2 with BeautifulSoup4
   * perl
   * zsh
   * perl
@@ -26,4 +26,5 @@ pass a single or multiple urls of series from bato.to as a argument to mangos to
 
 ###### What's Next?
 
-Maybe in the future have the choice to filter by group/chapters but I'm not to hot on this, especially filtering by chapter
+  *Stop using Beautiful Soup
+  *Maybe in the future have the choice to filter by group/chapters but I'm not to hot on this, especially filtering by chapter
